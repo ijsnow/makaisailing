@@ -8,7 +8,12 @@ import IconLocationOn from 'material-ui/svg-icons/communication/location-on';
 
 
 class Footer extends Component {
+  static contextTypes = {
+    router: React.PropTypes.object
+  }
+
   render() {
+    console.log(this.context);
     return (
       <Paper zDepth={1} className={`${classNames.container} ${this.props.light ? classNames.light : ''}`}>
         <BottomNavigation>
@@ -16,13 +21,14 @@ class Footer extends Component {
             className={classNames.item}
             label="Policy & Terms"
             icon={<div />}
-            onTouchTap={() => this.select(0)}
+            onTouchTap={() => this.context.router.push('/policy')}
           />
           <BottomNavigationItem
             className={classNames.item}
             style={{padding: 'none'}}
             label="Copyright © 2016 Napali Makai LLC. All rights reserved."
             icon={<div />}
+            onTouchTap={() => this.context.router.push('/policy')}
           />
         </BottomNavigation>
       </Paper>

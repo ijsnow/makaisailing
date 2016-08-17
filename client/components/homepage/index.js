@@ -124,26 +124,15 @@ class Homepage extends Component {
         </section>
 
         <section className={`${classNames.section} ${classNames.blue} ${classNames.heightFix}`}>
-          <ImageCarousel
-            sources={this.props.content.images}
-            onEdit={this.props.editImage}
-            onDelete={this.props.removeImage}
-            footer={(
-              <div className={`${classNames.row} ${classNames.center} ${classNames.imageFooter}`}>
-                <RaisedButton
-                  containerElement={<Link to="/gallery" />}
-                  label="see more"
-                />
-                {
-                  this.props.isLoggedIn && (
-                    !this.state.isAddingImage &&
-                      <RaisedButton label="add image" primary={true} onClick={() => this.setState({isAddingImage: true})} />
-                  )
-                }
-              </div>
-            )}
-          />
-
+          {
+            this.props.content.images.length > 0 && (
+              <ImageCarousel
+                sources={this.props.content.images}
+                onEdit={this.props.editImage}
+                onDelete={this.props.removeImage}
+              />
+            )
+          }
 
           {
             this.state.isAddingImage && (
@@ -154,7 +143,21 @@ class Homepage extends Component {
               />
             )
           }
+          
+          <div className={`${classNames.row} ${classNames.center} ${classNames.imageFooter}`}>
+            <RaisedButton
+              containerElement={<Link to="/gallery" />}
+              label="see more"
+            />
+            {
+              this.props.isLoggedIn && (
+                !this.state.isAddingImage &&
+                  <RaisedButton label="add image" primary={true} onClick={() => this.setState({isAddingImage: true})} />
+              )
+            }
+          </div>
         </section>
+
         </div>
         <Footer light={true} />
       </div>

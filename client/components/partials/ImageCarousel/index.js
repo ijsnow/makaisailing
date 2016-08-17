@@ -1,5 +1,11 @@
 import React, { Component } from 'react';
+import _ from 'lodash';
+
+
 import Carousel from 'nuka-carousel';
+
+import Scroll from 'react-scroll';
+
 import Slider from 'react-slick';
 import isLoggedIn from '../../hoc/isLoggedIn';
 
@@ -22,42 +28,106 @@ const ImageCarousel = React.createClass({
   mixins: [Carousel.ControllerMixin],
 
   getInitialState() {
+    console.log('~~~~~~~~~~', this, arguments);
+
     return {
       hasResized: false,
+      index: 0,
     };
   },
 
-  componentDidMount() {
-    console.log(this.refs.carousel.refs.slider);
-    window.addEventListener('resize', () => this.setState({hasResized: true}))
-  },
+  // componentDidMount() {
+  //   console.log(this.refs.carousel.refs.slider);
+  //   window.addEventListener('resize', () => this.setState({hasResized: true}))
+  // },
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.activeImage) {
-      this.refs.carousel.goToSlide(_.findIndex(this.props.sources, source => (
-        source._id === nextProps.activeImage
-      )))
+    if (nextProps.activeImage && !this.props.activeImage) {
+      const newIndex = this.props.sources.findIndex(src => src._id === nextProps.activeImage);
+      this.setState({index: newIndex});
+      Scroll.animateScroll.scrollTo(100);
+
       this.props.onChanged();
     }
   },
 
+  // render() {
+  //   return (
+  //     <div style={{
+  //       maxWidth: 1000,
+  //       minHeight: 700,
+  //       borderColor: 'yellow',
+  //       boarderWidth: 10,
+  //     }}>
+  //       <Carousel ref="carousel" data={() => this.setCarouselData('carousel')}
+  //         className={classNames.carousel}
+  //         decorators={this.getDecorators(this.props.footer, this.state.hasResized)}
+  //         dragging={true}
+  //         frameOverflow={'visible'}
+  //       >
+  //         {this.props.sources.map(source => (
+  //           <ImageCell key={source._id}
+  //             {...source}
+  //             isLoggedIn={this.props.isLoggedIn}
+  //             onEdit={this.props.onEdit}
+  //             onDelete={this.props.onDelete}
+  //           />)
+  //         )}
+  //       </Carousel>
+  //     </div>
+  //   );
+  // },
+
+  nextSlide() {
+    const newIndex = this.state.index + 1;
+
+    if (newIndex < this.props.sources.length) {
+      this.setState({index: newIndex});
+    }
+  },
+
+  previousSlide() {
+    const newIndex = this.state.index - 1;
+
+    if (newIndex >= 0) {
+      this.setState({index: newIndex});
+    }
+  },
+
   render() {
+    const source = this.props.sources[this.state.index];
+
+    if (!source) {
+      return <div />;
+    }
+
     return (
-      <Carousel ref="carousel" data={() => this.setCarouselData('carousel')}
-        className={classNames.carousel}
-        decorators={this.getDecorators(this.props.footer, this.state.hasResized)}
-        dragging={true}
-        frameOverflow={'visible'}
-      >
-        {this.props.sources.map(source => (
-          <ImageCell key={source._id}
-            {...source}
-            isLoggedIn={this.props.isLoggedIn}
-            onEdit={this.props.onEdit}
-            onDelete={this.props.onDelete}
-          />)
-        )}
-      </Carousel>
+      <div className={classNames.containerElement}>
+        <IconButton className={`${classNames.icon} ${classNames.visibleBig}`} onClick={this.previousSlide}>
+          <LeftArrow color={colors.beige} />
+        </IconButton>
+
+        <ImageCell key={source._id}
+          {...source}
+          isLoggedIn={this.props.isLoggedIn}
+          onEdit={this.props.onEdit}
+          onDelete={this.props.onDelete}
+        />
+
+        <div className={classNames.visibleSmall}>
+          <IconButton className={`${classNames.icon}`} onClick={this.previousSlide}>
+            <LeftArrow color={colors.beige} />
+          </IconButton>
+
+          <IconButton className={`${classNames.icon}`} onClick={this.nextSlide}>
+            <RightArrow color={colors.beige} />
+          </IconButton>
+        </div>
+
+        <IconButton className={`${classNames.icon} ${classNames.visibleBig}`} onClick={this.nextSlide}>
+          <RightArrow color={colors.beige} />
+        </IconButton>
+      </div>
     );
   },
 

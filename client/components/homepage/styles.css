@@ -1,5 +1,5 @@
 .container {
-  /*padding: 0 5px;*/
+  overflow: hidden;
 }
 
 .header {
@@ -59,9 +59,15 @@
   }
 }*/
 
-.heightFix {
-  /*height: 90vw;*/
+.imageFooter {
+  /*margin-top: -110px;*/
 }
+
+.heightFix {
+  /*height: 94vh;*/
+}
+
+/*fuck with .slider-slide in the global.css file*/
 
 .example {
   color: $mainColor;

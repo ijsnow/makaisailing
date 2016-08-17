@@ -16,7 +16,8 @@
 }
 
 .container div:last-child:hover {
-  cursor: default;
+  /*cursor: default !important;
+  color: $grey !important;*/
 }
 
 .container button {
@@ -35,5 +36,12 @@
 
   &:hover, &:active, &.active {
     color: $beige !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .container > div {
+    flex-direction: column;
+    height: 75px !important;
   }
 }

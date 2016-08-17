@@ -7,6 +7,18 @@
 
 .appBar h1 {
   font-size: 2rem !important;
+
+
+}
+
+.appBar h1:hover {
+  pointer: cursor !important;
+}
+
+@media (max-width: 700px) {
+  .appBar h1 {
+    font-size: 1rem !important;
+  }
 }
 
 @media (min-width: 650px) {

@@ -61,11 +61,14 @@ func (r *React) Handle(c *echo.Context) error {
 		}
 	}()
 
-	if r.ssr {
-		return c.Render(http.StatusOK, "react.html", Resp{
-			UUID: UUID.String(),
-		})
-	}
+	// if !r.ssr {
+	// 	c.Echo().Logger().Output().Write([]byte("Sending page without ssr\n"))
+	// 	return c.Render(http.StatusOK, "react.html", Resp{
+	// 		UUID: UUID.String(),
+	// 	})
+	// }
+
+	c.Echo().Logger().Output().Write([]byte("Sending page with ssr\n"))
 
 	vm := r.get()
 

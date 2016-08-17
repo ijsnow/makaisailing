@@ -21,6 +21,8 @@
 .img {
   background-size: contain;
   background-repeat: no-repeat;
+  height: auto;
+  width: 60% !important;
 }
 
 .grid {
@@ -55,4 +57,36 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.carousel ul li {
+  width: 12.5% !important;
+  left: 10% !important;
+  transform: translateX(-61%);
+}
+
+.containerElement {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  max-width: 1000;
+  min-height: 700;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 600px) {
+  .visibleBig {
+    display: none !important;
+  }
+
+  .containerElement {
+    flex-direction: column;
+  }
+}
+
+@media (min-width: 600px) {
+  .visibleSmall {
+    display: none !important;
+  }
 }
