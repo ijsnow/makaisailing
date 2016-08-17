@@ -1,0 +1,37 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.appBar h1 {
+  font-size: 2rem !important;
+}
+
+@media (min-width: 650px) {
+  .menuIcon {
+    display: none !important;
+  }
+}
+
+.menuIcon svg {
+  color: rgb(255, 255, 255) !important;
+}
+
+@media (max-width: 650px) {
+  .navBar {
+    display: none;
+  }
+}
+
+.navBar a {
+  color: rgba(255, 255, 255, 0.8);
+  display: inline-block;
+  letter-spacing: 3px !important;
+  margin: 0px 10px;
+
+  &:hover, &:active, &.active {
+    color: $beige;
+  }
+}

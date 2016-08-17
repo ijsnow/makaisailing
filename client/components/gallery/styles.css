@@ -1,0 +1,47 @@
+.container {
+
+}
+
+.header {
+  height: 15vh;
+}
+
+.blue {
+  background-color: $blueDark;
+}
+
+.gallery {
+  padding-bottom: 10vh;
+}
+
+.gridList {
+  padding: 0px;
+}
+
+.tile {
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+@media (min-width: 750px) {
+  .gridList {
+    padding: 35px;
+  }
+}
+
+.dialog {
+  padding-top: 0px !important;
+}
+
+.dialog .container < div {
+  padding: 0px !important;
+}
+
+.tileImg {
+  height: auto !important;
+}
+
+.heightFix {
+  /*height: 90vw;*/
+}

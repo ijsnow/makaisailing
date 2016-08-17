@@ -1,0 +1,12 @@
+/node_modules
+/bin
+/pkg
+/src
+/vendor
+/server/bindata.go
+/server/data/static/build
+config.yaml
+.secrets
+
+.pid
+.DS_Store

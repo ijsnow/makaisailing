@@ -1,0 +1,109 @@
+.container {
+  /*padding: 0 5px;*/
+}
+
+.header {
+  height: 60vh;
+}
+
+.section {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.section.blue {
+  background-color: $blueDark;
+}
+
+.section h1 {
+  padding-top: 25px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.row {
+  display: flex;
+  flex-direction: column;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.row.center {
+  padding: 30px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.card {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+@media (min-width: 800px) {
+  .row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-bottom: 25px;
+  }
+
+  .card {
+    width: 275px;
+  }
+}
+
+/*@media (max-width: 650px) {
+  .imageFooter {
+    bottom: 20vh !important
+  }
+}*/
+
+.heightFix {
+  /*height: 90vw;*/
+}
+
+.example {
+  color: $mainColor;
+  font-size: px(40);
+  font-weight: 500;
+  max-width: px(500);
+  margin: 0 auto;
+}
+
+.link {
+  color: $yellow;
+  position: relative;
+  &:before {
+    content: '';
+    position: absolute;
+    height: px(2);
+    bottom: px(0);
+    background-color: $yellow;
+    right: px(-1);
+    left: @right;
+  }
+
+  &:hover {
+    color: $red;
+    &:before {
+      background-color: $red;
+    }
+  }
+}
+
+.p {
+  color: $mainColor;
+}
+
+.button {
+  margin-top: px(50);
+  width: px(50);
+  height: @width;
+  color: #333;
+  font-size: px(30);
+  text-align: center;
+  background-color: $mainColor;
+  display: inline-block;
+  border-radius: px(3);
+}

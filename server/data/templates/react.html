@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html data-uuid="{{ .UUID }}">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0,maximum-scale=1,width=device-width">
+
+    <meta name="title" content="Sailing on the Garden Isle. Kauai's Na Pali Makai Sailing">
+    <meta name="description" content="Enjoy various sailing options on beautiful Garden Isle of Kaua'i Hawai'i. During the summer months we are based out of the famous Hanalei Bay on the north shore. When the waters on the north shore get too rough we move to the south side of the Garden Isle of Kauai and are based out of Hanapepe Bay.">
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+    <link rel="stylesheet" href="/static/build/bundle.css">
+    {{ .HTMLTitle }}
+    {{ .HTMLMeta }}
+  </head>
+  <body>
+    {{if .Error}}
+      <div
+        class="error"
+        style="
+          width: 50%;
+          position: absolute;
+          top: 10px;
+          left: 10px;
+          opacity: .5;
+          color: #666;
+          border: 2px solid #fb2c10;
+          background: rgba(0,0,0,.1);
+          font-family:monaco, Consolas, Lucida Console, monospace;
+          pointer-events: none;"
+        >
+          <button
+            style="padding: 10px 10px 0 10px;pointer-events: auto; font-size: 16px"
+            onclick="this.parentElement.parentElement.removeChild(this.parentElement)"
+          >
+            Server Error: {{ .UUID }}
+          </button>
+        <hr style="
+          height: 0px;
+          border: none;
+          border-bottom: 2px solid #fb2c10;
+        "/>
+        <pre style="font-family:monaco, Consolas, Lucida Console, monospace;
+          font-size: 14px; padding: 0 10px 10px; margin: 0">{{ .Error }}</pre>
+      </div>
+    {{end}}
+    <div id="app">{{ .HTMLApp }}</div>
+    <script onload="this.parentElement.removeChild(this)">
+      window['--app-initial'] = JSON.parse("{{if .Initial}}{{ .Initial }}{{else}}{}{{end}}");
+      window['--ui-initial-load'] = true;
+    </script>
+    <script async defer src="/static/build/bundle.js" onload="this.parentElement.removeChild(this)"></script>
+
+
+  </body>
+</html>

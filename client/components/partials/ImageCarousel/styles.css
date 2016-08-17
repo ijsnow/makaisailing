@@ -1,0 +1,58 @@
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 600px) {
+  .container {
+    width: 80%;
+  }
+}
+
+.header {
+  height: 40vh;
+  background-color: $blueDark;
+}
+
+.img {
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.grid .list {
+  width: 500px;
+  height: 500px;
+  overflow-y: auto;
+  margin-bottom: 24px;
+}
+
+@media (max-width: 650px) {
+  .caption {
+    padding: 0px 10px !important;
+
+    & span {
+      font-size: 15px !important;
+    }
+  }
+}
+
+.carousel {
+
+}
+
+.carousel ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

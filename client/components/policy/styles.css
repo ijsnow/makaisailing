@@ -1,0 +1,52 @@
+.container {
+
+}
+
+.header {
+  height: 15vh;
+}
+
+.blue {
+  background-color: $blueDark;
+}
+
+.content {
+  max-width: 800px;
+  margin: 0px auto;
+  padding: 10px;
+}
+
+.content section {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.content li {
+  padding-top: 10px;
+}
+
+li:before {
+  content: "•";
+  padding-right: 8px;
+  color: $blueDark;
+}
+
+.content p {
+  padding: 10px;
+}
+
+.info {
+  padding-top: 10px;
+
+  & > span {
+    margin-left: 5px;
+
+    & > a {
+      color: $blueDark;
+
+      &:hover, &:active {
+        color: #367396;
+      }
+    }
+  }
+}

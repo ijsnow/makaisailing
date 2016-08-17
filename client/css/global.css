@@ -1,0 +1,56 @@
+h1,h2,h3,h4,h5,h6,p,ul,ol,li,button,input,strong,small,em {
+  margin: 0;
+  padding: 0;
+  font-size: inherit;
+  font-weight: inherit;
+  font-style: inherit;
+}
+
+h1 {
+  font-size: 2rem;
+  color: rgba(0, 0, 0, 0.870588);
+  display: block;
+  line-height: 36px;
+  letter-spacing: 3px !important;
+  padding-top: 12px;
+  margin-bottom: 15px;
+}
+
+b {
+  font-weight: inherit;
+}
+
+i {
+  font-style: inherit;
+}
+
+ul,ol,li {
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button, input, textarea {
+  border: none;
+  background: none;
+  outline: none;
+}
+
+html {
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  font-size: 16px;
+}
+
+img {
+  max-width: 100%;
+}
+
+*, :before, :after {
+  box-sizing: border-box;
+}

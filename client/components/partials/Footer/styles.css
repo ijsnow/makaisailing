@@ -1,0 +1,39 @@
+.container {
+  height: 3rem !important;
+  background-color: $blueDark !important;
+}
+
+.container.light {
+  background-color: rgb(255, 255, 255) !important;
+}
+
+.container.light div {
+  background-color: rgb(255, 255, 255) !important;
+}
+
+.container div {
+  background-color: $blueDark !important;
+}
+
+.container div:last-child:hover {
+  cursor: default;
+}
+
+.container button {
+  max-width: none !important;
+}
+
+.container.light button div {
+  color: $grey !important;
+}
+
+.container button div {
+  color: rgba(255, 255, 255, 0.8) !important;
+  display: inline-block !important;
+  letter-spacing: 3px !important;
+  margin: -5px 10px 0px !important;
+
+  &:hover, &:active, &.active {
+    color: $beige !important;
+  }
+}

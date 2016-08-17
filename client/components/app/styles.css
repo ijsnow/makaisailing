@@ -1,0 +1,9 @@
+body {
+  background-color: $offWhite;
+}
+
+:global(#app) {
+  display: inline-block;
+  vertical-align: middle;
+  width: 100%;
+}

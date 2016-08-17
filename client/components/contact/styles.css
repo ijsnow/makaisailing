@@ -1,0 +1,39 @@
+.container {
+
+}
+
+.header {
+  height: 15vh;
+}
+
+.blue {
+  background-color: $blueDark;
+}
+
+.content {
+  max-width: 650px;
+  margin: 0px auto;
+  padding: 10px;
+}
+
+.info {
+  padding-top: 10px;
+
+  & > span {
+    margin-left: 5px;
+
+    & > a {
+      color: $blueDark;
+
+      &:hover, &:active {
+        color: #367396;
+      }
+    }
+  }
+}
+
+.form {
+  max-width: 650px;
+  margin: 20px auto 0px;
+  padding: 10px;
+}
