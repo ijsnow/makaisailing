@@ -36,7 +36,7 @@ deploy:
         name: build
         code: |
           make build
-          ls -la $GOPATH/bin
+          ls -la /root/work/bin
     — internal/docker-push:
       username: $DOCKER_USERNAME
       password: $DOCKER_PASSWORD
