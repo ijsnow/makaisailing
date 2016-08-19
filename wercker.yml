@@ -18,3 +18,33 @@ build:
         code: |
           make build
           ls -la $GOPATH/bin
+deploy:
+  steps:
+    — internal/docker-push:
+      username: $DOCKER_USERNAME
+      password: $DOCKER_PASSWORD
+      repository: docker pull ijsnow/makaisailing
+      ports: "5000"
+      cmd: /bin/bash -c "$GOPATH/bin/makaisailing run"
+    - add-ssh-key:
+      keyname: DIGITAL_OCEAN
+    - add-to-known_hosts:
+      hostname: 138.68.25.225
+    - script:
+      name: pull latest image
+      code: ssh root@138.68.25.225 docker pull ijsnow/makaisailing:latest
+    — script:
+      name: stop running container
+      code: ssh root@138.68.25.225 docker stop makaisailing || echo ‘failed to stop running container’
+    — script:
+      name: remove stopped container
+      code: ssh root@138.68.25.225 docker rm makaisailing || echo ‘failed to remove stopped container’
+    — script:
+      name: remove image behind stopped container
+      code: ssh root@138.68.25.225 docker rmi ijsnow/makaisailing:current || echo ‘failed to remove image behind stopped container’
+    — script:
+      name: tag newly pulled image
+      code: ssh root@138.68.25.225 docker tag ijsnow/makaisailing:latest ijsnow/makaisailing:current
+    — script:
+      name: run new container
+      code: ssh root@138.68.25.225 docker run -d -p 8080:5000 --name makaisailing ijsnow/makaisailing:current
