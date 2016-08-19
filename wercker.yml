@@ -1,7 +1,8 @@
 box: toscale/golang-node:latest
 build:
   steps:
-    - setup-go-workspace
+    - setup-go-workspace:
+      package-dir: github.com/ijsnow/makaisailing
     - npm-install
     - script:
         name: install

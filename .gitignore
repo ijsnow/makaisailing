@@ -5,6 +5,7 @@
 /vendor
 /server/bindata.go
 /server/data/static/build
+/.wercker/
 config.yaml
 .secrets
 
