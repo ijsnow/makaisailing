@@ -110,3 +110,7 @@ dependencies:
     name: gopkg.in/gomail.v2
     remote: https://gopkg.in/gomail.v2
     commit: 81ebce5c23dfd25c6c67194b37d3dd3f338c98b1
+  github.com/dgrijalva/jwt-go:
+    type: git
+    name: github.com/dgrijalva/jwt-go
+    remote: https://github.com/dgrijalva/jwt-go
