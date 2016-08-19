@@ -114,3 +114,4 @@ dependencies:
     type: git
     name: github.com/dgrijalva/jwt-go
     remote: https://github.com/dgrijalva/jwt-go
+    commit: 63734eae1ef55eaac06fdc0f312615f2e321e273
