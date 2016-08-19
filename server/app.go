@@ -4,6 +4,7 @@ import (
 	"html/template"
 	"io"
 	"net/http"
+	"os"
 	"path/filepath"
 
 	"github.com/elazarl/go-bindata-assetfs"
@@ -145,7 +146,8 @@ func NewApp(opts ...AppOptions) *App {
 		prefix = "prod"
 	}
 
-	dbURL, _ := app.Conf.String(prefix + ".db.url")
+	//dbURL, _ := app.Conf.String(prefix + ".db.url")
+	dbURL := os.Getenv("MONGO_URL")
 	dbName, _ := app.Conf.String(prefix + ".db.name")
 
 	app.Mongo = db.NewMongoConnection(dbURL, dbName)
