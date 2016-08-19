@@ -40,7 +40,7 @@ deploy:
       password: $DOCKER_PASSWORD
       repository: docker pull ijsnow/makaisailing
       ports: "5000"
-      code: /bin/bash -c "$WERCKER_SOURCE_DIR/bin/makaisailing run"
+      code: /bin/bash -c "/root/work/bin/makaisailing run"
     - add-ssh-key:
       keyname: DIGITAL_OCEAN
     - add-to-known_hosts:
