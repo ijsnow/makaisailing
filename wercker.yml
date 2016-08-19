@@ -5,6 +5,7 @@ build:
   steps:
     - setup-go-workspace:
       package-dir: github.com/ijsnow/makaisailing
+      gopath: /root/work
     - npm-install
     - script:
         name: install
@@ -25,7 +26,7 @@ deploy:
       password: $DOCKER_PASSWORD
       repository: docker pull ijsnow/makaisailing
       ports: "5000"
-      cmd: /bin/bash -c "$GOPATH/bin/makaisailing run"
+      cmd: /bin/bash -c "/root/work/bin/makaisailing run"
     - add-ssh-key:
       keyname: DIGITAL_OCEAN
     - add-to-known_hosts:
